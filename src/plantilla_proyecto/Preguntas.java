@@ -54,6 +54,11 @@ public class Preguntas extends javax.swing.JFrame {
         lblpregunta = new javax.swing.JLabel();
         btnres4 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
+        pnlbarra = new javax.swing.JPanel();
+        hide = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        jlogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -122,9 +127,8 @@ public class Preguntas extends javax.swing.JFrame {
         btncall.setBorder(null);
         btncall.setBorderPainted(false);
         btncall.setContentAreaFilled(false);
-        btncall.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btncall.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btncall.setInheritsPopupMenu(true);
-        btncall.setRolloverEnabled(false);
         btncall.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/llamadas.png"))); // NOI18N
         btncall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +152,44 @@ public class Preguntas extends javax.swing.JFrame {
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_1.jpg"))); // NOI18N
         pnl1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 670));
 
-        getContentPane().add(pnl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 670));
+        getContentPane().add(pnl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 930, 630));
+
+        pnlbarra.setBackground(new java.awt.Color(255, 255, 255));
+        pnlbarra.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        pnlbarra.setMinimumSize(new java.awt.Dimension(0, 0));
+        pnlbarra.setPreferredSize(new java.awt.Dimension(0, 0));
+        pnlbarra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/minimizar.png"))); // NOI18N
+        hide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hideMouseClicked(evt);
+            }
+        });
+        pnlbarra.add(hide, new org.netbeans.lib.awtextra.AbsoluteConstraints(852, 0, 30, 40));
+
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
+        close.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        pnlbarra.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 30, 40));
+
+        titulo.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 0, 0));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("¿Que sabes de cultura?");
+        titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlbarra.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 2, -1, 30));
+
+        jlogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/log.png"))); // NOI18N
+        jlogo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlbarra.add(jlogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 40));
+
+        getContentPane().add(pnlbarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,6 +205,7 @@ public class Preguntas extends javax.swing.JFrame {
     private void btncallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncallActionPerformed
         Llamada f = new Llamada();
         f.setVisible(true);
+        btncall.setEnabled(false);
     }//GEN-LAST:event_btncallActionPerformed
 
     private void btnres4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres4ActionPerformed
@@ -178,7 +220,30 @@ public class Preguntas extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnres2ActionPerformed
 
+    private void hideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseClicked
+        this.setState(Principal.ICONIFIED);
+    }//GEN-LAST:event_hideMouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Deseas salir?", "Aviso", dialog);
+        if (result == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_closeMouseClicked
+
     public static void main(String args[]) {
+        
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -195,8 +260,13 @@ public class Preguntas extends javax.swing.JFrame {
     private javax.swing.JButton btnres2;
     private javax.swing.JButton btnres3;
     private javax.swing.JButton btnres4;
+    private javax.swing.JLabel close;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel hide;
+    private javax.swing.JLabel jlogo;
     private javax.swing.JLabel lblpregunta;
     private javax.swing.JPanel pnl1;
+    private javax.swing.JPanel pnlbarra;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

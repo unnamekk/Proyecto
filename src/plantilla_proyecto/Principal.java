@@ -4,22 +4,24 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
 
     private int x, y;
-    
+
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        String pedir = JOptionPane.showInputDialog(null,"Introduzca su nombre: ","Introduccion", JOptionPane.QUESTION_MESSAGE);
+        lblname.setText("Nombre: "+ pedir);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/log.png")).getImage());
 
-        ImageIcon fon = new ImageIcon("src/imagenes/fondo_1.jpg");
+        ImageIcon fon = new ImageIcon("src/imagenes/fondo_aclarado.png");
         Icon icon1 = new ImageIcon(fon.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
         fondo.setIcon(icon1);
         this.repaint();
-       
 
     }
 
@@ -33,6 +35,9 @@ public class Principal extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         jlogo = new javax.swing.JLabel();
         pnlprincipal = new javax.swing.JPanel();
+        btniniciar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblname = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         pnlbarra.add(close);
-        close.setBounds(980, 0, 30, 40);
+        close.setBounds(990, 0, 30, 40);
 
         hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/minimizar.png"))); // NOI18N
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,7 +76,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         pnlbarra.add(hide);
-        hide.setBounds(940, 0, 40, 40);
+        hide.setBounds(950, 0, 40, 40);
 
         titulo.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -90,7 +95,26 @@ public class Principal extends javax.swing.JFrame {
         pnlprincipal.setBackground(new java.awt.Color(153, 102, 0));
         pnlprincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_1.jpg"))); // NOI18N
+        btniniciar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btniniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/start.png"))); // NOI18N
+        btniniciar.setText("Jugar");
+        btniniciar.setBorder(null);
+        btniniciar.setContentAreaFilled(false);
+        btniniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btniniciarActionPerformed(evt);
+            }
+        });
+        pnlprincipal.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 250, 130));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logolindo.png"))); // NOI18N
+        pnlprincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 480, 240));
+
+        lblname.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        lblname.setForeground(new java.awt.Color(0, 255, 204));
+        pnlprincipal.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 190, 20));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_aclarado.png"))); // NOI18N
         fondo.setMinimumSize(new java.awt.Dimension(840, 570));
         fondo.setPreferredSize(new java.awt.Dimension(840, 570));
         pnlprincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 570));
@@ -106,6 +130,7 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlbarra, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(pnlprincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -133,6 +158,10 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_closeMouseClicked
 
+    private void btniniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btniniciarActionPerformed
+        
+    }//GEN-LAST:event_btniniciarActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -152,10 +181,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btniniciar;
     private javax.swing.JLabel close;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel hide;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlogo;
+    private javax.swing.JLabel lblname;
     private javax.swing.JPanel pnlbarra;
     private javax.swing.JPanel pnlprincipal;
     private javax.swing.JLabel titulo;

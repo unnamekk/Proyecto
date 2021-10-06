@@ -8,21 +8,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
-/**
- *
- * @author COREI3
- */
 public class Llamada extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Llamada
-     */
+  
     Timer t;
     int i = 60;
 
     public Llamada() {
         initComponents();
         this.setLocationRelativeTo(null);
+        ImageIcon fon = new ImageIcon("src/imagenes/fondo_1.jpg");
+        Icon icon1 = new ImageIcon(fon.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
+        fondo.setIcon(icon1);
+        this.repaint();
 
         t = new Timer(1000, new ActionListener() {
 
@@ -49,7 +46,6 @@ public class Llamada extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlprin = new javax.swing.JPanel();
-        lblcontestado = new javax.swing.JLabel();
         timer = new javax.swing.JLabel();
         colgar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
@@ -60,12 +56,9 @@ public class Llamada extends javax.swing.JFrame {
 
         pnlprin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblcontestado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llamando.png"))); // NOI18N
-        pnlprin.add(lblcontestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 200, 200));
-
         timer.setFont(new java.awt.Font("Tahoma", 1, 75)); // NOI18N
         timer.setForeground(new java.awt.Color(255, 255, 255));
-        pnlprin.add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 220, 200));
+        pnlprin.add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 220, 200));
 
         colgar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/colgar.png"))); // NOI18N
         colgar.setBorder(null);
@@ -76,12 +69,12 @@ public class Llamada extends javax.swing.JFrame {
                 colgarActionPerformed(evt);
             }
         });
-        pnlprin.add(colgar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 240, 220));
+        pnlprin.add(colgar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 240, 220));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_1.jpg"))); // NOI18N
-        pnlprin.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 300));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_1.jpg"))); // NOI18N
+        pnlprin.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
 
-        getContentPane().add(pnlprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 300));
+        getContentPane().add(pnlprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -93,10 +86,7 @@ public class Llamada extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -129,16 +119,6 @@ public class Llamada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton colgar;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel lblcontestado;
     private javax.swing.JPanel pnlprin;
     private javax.swing.JLabel timer;
     // End of variables declaration//GEN-END:variables
