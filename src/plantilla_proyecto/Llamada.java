@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class Llamada extends javax.swing.JFrame {
-  
+
     Timer t;
     int i = 60;
 
@@ -48,6 +48,7 @@ public class Llamada extends javax.swing.JFrame {
         pnlprin = new javax.swing.JPanel();
         timer = new javax.swing.JLabel();
         colgar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,8 +57,8 @@ public class Llamada extends javax.swing.JFrame {
 
         pnlprin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        timer.setFont(new java.awt.Font("Tahoma", 1, 75)); // NOI18N
-        timer.setForeground(new java.awt.Color(255, 255, 255));
+        timer.setFont(new java.awt.Font("Bahnschrift", 1, 75)); // NOI18N
+        timer.setForeground(new java.awt.Color(0, 255, 255));
         pnlprin.add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 220, 200));
 
         colgar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/colgar.png"))); // NOI18N
@@ -70,6 +71,12 @@ public class Llamada extends javax.swing.JFrame {
             }
         });
         pnlprin.add(colgar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 240, 220));
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Tiempo");
+        pnlprin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 190, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_1.jpg"))); // NOI18N
         pnlprin.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
@@ -86,7 +93,6 @@ public class Llamada extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -119,6 +125,7 @@ public class Llamada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton colgar;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlprin;
     private javax.swing.JLabel timer;
     // End of variables declaration//GEN-END:variables

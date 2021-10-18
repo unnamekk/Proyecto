@@ -1,35 +1,16 @@
 package plantilla_proyecto;
 
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
-public class Preguntas extends javax.swing.JFrame {
-    
-    Timer t;
-    int i = 180;
+public class Preguntas_dificil extends javax.swing.JFrame {
+
     boolean lf = false;
 
-    public Preguntas() {
+    public Preguntas_dificil() {
         initComponents();
-        
-        t = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                timer.setText(String.valueOf(i));
-                i--;
-                if (i == 0) {
-                    JOptionPane.showMessageDialog(null,"Se acabo su tiempo","Intenta de nuevo", JOptionPane.CANCEL_OPTION);
-                    dispose();
-                }
-            }
-        });
-        t.start();
-        
         this.setLocationRelativeTo(null);
         
         ImageIcon fon = new ImageIcon("src/imagenes/fondo_1.jpg");
@@ -56,11 +37,6 @@ public class Preguntas extends javax.swing.JFrame {
         Icon icon4 = new ImageIcon(res4.getImage().getScaledInstance(btnres4.getWidth(), btnres4.getHeight(), Image.SCALE_DEFAULT));
         btnres4.setIcon(icon4);
         this.repaint();
-        
-        ImageIcon preg = new ImageIcon("src/imagenes/Imagen1.png");
-        Icon icon5 = new ImageIcon(preg.getImage().getScaledInstance(lblpregunta.getWidth(), lblpregunta.getHeight(), Image.SCALE_DEFAULT));
-        lblpregunta.setIcon(icon5);
-        this.repaint();
 
     }
 
@@ -73,16 +49,10 @@ public class Preguntas extends javax.swing.JFrame {
         btnres3 = new javax.swing.JButton();
         btnres1 = new javax.swing.JButton();
         btn50 = new javax.swing.JButton();
+        btnques = new javax.swing.JButton();
         btncall = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         lblpregunta = new javax.swing.JLabel();
         btnres4 = new javax.swing.JButton();
-        timer = new javax.swing.JLabel();
-        lblres1 = new javax.swing.JLabel();
-        lblres2 = new javax.swing.JLabel();
-        lblres3 = new javax.swing.JLabel();
-        lblres4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
         pnlbarra = new javax.swing.JPanel();
         hide = new javax.swing.JLabel();
@@ -100,35 +70,28 @@ public class Preguntas extends javax.swing.JFrame {
         btnres2.setBorder(null);
         btnres2.setBorderPainted(false);
         btnres2.setContentAreaFilled(false);
-        btnres2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnres2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnres2.setInheritsPopupMenu(true);
         btnres2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnres2ActionPerformed(evt);
             }
         });
-        pnl1.add(btnres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, 360, 110));
+        pnl1.add(btnres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 380, 110));
 
         btnres3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
         btnres3.setBorder(null);
         btnres3.setBorderPainted(false);
         btnres3.setContentAreaFilled(false);
-        btnres3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnres3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnres3.setInheritsPopupMenu(true);
-        btnres3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnres3ActionPerformed(evt);
-            }
-        });
         pnl1.add(btnres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 360, 110));
 
-        btnres1.setBackground(new java.awt.Color(255, 255, 255));
-        btnres1.setForeground(new java.awt.Color(0, 255, 255));
         btnres1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
         btnres1.setBorder(null);
         btnres1.setBorderPainted(false);
         btnres1.setContentAreaFilled(false);
-        btnres1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnres1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnres1.setInheritsPopupMenu(true);
         btnres1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +112,16 @@ public class Preguntas extends javax.swing.JFrame {
                 btn50ActionPerformed(evt);
             }
         });
-        pnl1.add(btn50, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 260, 160));
+        pnl1.add(btn50, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 260, 160));
+
+        btnques.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/preguntaAzar.png"))); // NOI18N
+        btnques.setBorder(null);
+        btnques.setBorderPainted(false);
+        btnques.setContentAreaFilled(false);
+        btnques.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnques.setInheritsPopupMenu(true);
+        btnques.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/preguntaAzars.png"))); // NOI18N
+        pnl1.add(btnques, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 230, 170));
 
         btncall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/llamada.png"))); // NOI18N
         btncall.setBorder(null);
@@ -163,57 +135,19 @@ public class Preguntas extends javax.swing.JFrame {
                 btncallActionPerformed(evt);
             }
         });
-        pnl1.add(btncall, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 220, 160));
-
-        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel1.setText("Cual es el lugar de origen del Whisky Escocés?");
-        pnl1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 560, 70));
-
-        lblpregunta.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lblpregunta.setForeground(new java.awt.Color(0, 255, 255));
-        pnl1.add(lblpregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 690, 100));
+        pnl1.add(btncall, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 220, 160));
+        pnl1.add(lblpregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 690, 100));
 
         btnres4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
         btnres4.setBorder(null);
         btnres4.setBorderPainted(false);
         btnres4.setContentAreaFilled(false);
-        btnres4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnres4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnres4ActionPerformed(evt);
             }
         });
-        pnl1.add(btnres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 370, 110));
-
-        timer.setFont(new java.awt.Font("Bahnschrift", 1, 75)); // NOI18N
-        timer.setForeground(new java.awt.Color(0, 255, 255));
-        pnl1.add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 220, 200));
-
-        lblres1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lblres1.setForeground(new java.awt.Color(0, 255, 255));
-        lblres1.setText("Irlanda");
-        pnl1.add(lblres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 230, 60));
-
-        lblres2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lblres2.setForeground(new java.awt.Color(0, 255, 255));
-        lblres2.setText("Gales");
-        pnl1.add(lblres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 240, 60));
-
-        lblres3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lblres3.setForeground(new java.awt.Color(0, 255, 255));
-        lblres3.setText("Estados unidos");
-        pnl1.add(lblres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, 240, 60));
-
-        lblres4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lblres4.setForeground(new java.awt.Color(0, 255, 255));
-        lblres4.setText("Escocia");
-        pnl1.add(lblres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 240, 60));
-
-        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel2.setText("Puntos: 0");
-        pnl1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
+        pnl1.add(btnres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 370, 110));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_1.jpg"))); // NOI18N
         pnl1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 670));
@@ -260,7 +194,11 @@ public class Preguntas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn50ActionPerformed
-         
+
+        btnres4.setVisible(false);
+        btnres4.setVisible(false);
+        lf = true;
+
     }//GEN-LAST:event_btn50ActionPerformed
 
     private void btncallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncallActionPerformed
@@ -293,10 +231,6 @@ public class Preguntas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_closeMouseClicked
 
-    private void btnres3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnres3ActionPerformed
-
     public static void main(String args[]) {
         
         try {
@@ -312,7 +246,7 @@ public class Preguntas extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Preguntas().setVisible(true);
+                new Preguntas_dificil().setVisible(true);
             }
         });
     }
@@ -320,6 +254,7 @@ public class Preguntas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn50;
     private javax.swing.JButton btncall;
+    private javax.swing.JButton btnques;
     private javax.swing.JButton btnres1;
     private javax.swing.JButton btnres2;
     private javax.swing.JButton btnres3;
@@ -327,17 +262,10 @@ public class Preguntas extends javax.swing.JFrame {
     private javax.swing.JLabel close;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel hide;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jlogo;
     private javax.swing.JLabel lblpregunta;
-    private javax.swing.JLabel lblres1;
-    private javax.swing.JLabel lblres2;
-    private javax.swing.JLabel lblres3;
-    private javax.swing.JLabel lblres4;
     private javax.swing.JPanel pnl1;
     private javax.swing.JPanel pnlbarra;
-    private javax.swing.JLabel timer;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

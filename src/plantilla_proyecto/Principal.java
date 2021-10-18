@@ -22,6 +22,18 @@ public class Principal extends javax.swing.JFrame {
         Icon icon1 = new ImageIcon(fon.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
         fondo.setIcon(icon1);
         this.repaint();
+        
+        ImageIcon res1 = new ImageIcon("src/imagenes/Imagen1.png");
+        Icon icon2 = new ImageIcon(res1.getImage().getScaledInstance(btnopc1.getWidth(), btnopc1.getHeight(), Image.SCALE_DEFAULT));
+        btnopc1.setIcon(icon2);
+        this.repaint();
+        btnopc1.setVisible(false);
+        
+        ImageIcon res2 = new ImageIcon("src/imagenes/Imagen1.png");
+        Icon icon3 = new ImageIcon(res2.getImage().getScaledInstance(btnopc2.getWidth(), btnopc2.getHeight(), Image.SCALE_DEFAULT));
+        btnopc2.setIcon(icon3);
+        this.repaint();
+        btnopc2.setVisible(false);
 
     }
 
@@ -30,7 +42,6 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlbarra = new javax.swing.JPanel();
-        close = new javax.swing.JLabel();
         hide = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         jlogo = new javax.swing.JLabel();
@@ -38,7 +49,12 @@ public class Principal extends javax.swing.JFrame {
         btniniciar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblname = new javax.swing.JLabel();
+        btnopc1 = new javax.swing.JButton();
+        btnopc2 = new javax.swing.JButton();
+        lblopc1 = new javax.swing.JLabel();
+        lblopc2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("¿Que sabes de cultura?");
@@ -58,25 +74,15 @@ public class Principal extends javax.swing.JFrame {
         pnlbarra.setBackground(new java.awt.Color(255, 255, 255));
         pnlbarra.setLayout(null);
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
-        close.setLabelFor(hide);
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
-        pnlbarra.add(close);
-        close.setBounds(990, 0, 30, 40);
-
         hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/minimizar.png"))); // NOI18N
+        hide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hideMouseClicked(evt);
             }
         });
         pnlbarra.add(hide);
-        hide.setBounds(950, 0, 40, 40);
+        hide.setBounds(900, 0, 40, 40);
 
         titulo.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -84,7 +90,7 @@ public class Principal extends javax.swing.JFrame {
         titulo.setText("¿Que sabes de cultura?");
         titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlbarra.add(titulo);
-        titulo.setBounds(390, 0, 220, 40);
+        titulo.setBounds(380, 0, 220, 40);
 
         jlogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/log.png"))); // NOI18N
@@ -100,31 +106,78 @@ public class Principal extends javax.swing.JFrame {
         btniniciar.setText("Jugar");
         btniniciar.setBorder(null);
         btniniciar.setContentAreaFilled(false);
+        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btniniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btniniciarActionPerformed(evt);
             }
         });
-        pnlprincipal.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 250, 130));
+        pnlprincipal.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 250, 130));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logolindo.png"))); // NOI18N
-        pnlprincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 480, 240));
+        pnlprincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 480, 240));
 
         lblname.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        lblname.setForeground(new java.awt.Color(0, 255, 204));
-        pnlprincipal.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 190, 20));
+        lblname.setForeground(new java.awt.Color(0, 255, 255));
+        lblname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblname.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        pnlprincipal.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 270, 20));
+
+        btnopc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
+        btnopc1.setBorder(null);
+        btnopc1.setBorderPainted(false);
+        btnopc1.setContentAreaFilled(false);
+        btnopc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnopc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnopc1ActionPerformed(evt);
+            }
+        });
+        pnlprincipal.add(btnopc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 180, 50));
+
+        btnopc2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
+        btnopc2.setBorder(null);
+        btnopc2.setBorderPainted(false);
+        btnopc2.setContentAreaFilled(false);
+        btnopc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnopc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnopc2ActionPerformed(evt);
+            }
+        });
+        pnlprincipal.add(btnopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 180, 50));
+
+        lblopc1.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
+        lblopc1.setForeground(new java.awt.Color(0, 255, 255));
+        lblopc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblopc1.setFocusable(false);
+        pnlprincipal.add(lblopc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 180, 30));
+
+        lblopc2.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
+        lblopc2.setForeground(new java.awt.Color(0, 255, 255));
+        pnlprincipal.add(lblopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 120, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_aclarado.png"))); // NOI18N
         fondo.setMinimumSize(new java.awt.Dimension(840, 570));
         fondo.setPreferredSize(new java.awt.Dimension(840, 570));
-        pnlprincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 570));
+        pnlprincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 570));
+
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
+        close.setLabelFor(hide);
+        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        pnlprincipal.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, -30, 30, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlbarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlprincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlprincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,8 +212,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_closeMouseClicked
 
     private void btniniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btniniciarActionPerformed
-        
+        btnopc1.setVisible(true);
+        btnopc2.setVisible(true);
+        lblopc1.setText("Novato cultural");
+        lblopc2.setText("Rey de la cultura");
+        btniniciar.setEnabled(false);
     }//GEN-LAST:event_btniniciarActionPerformed
+
+    private void btnopc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopc1ActionPerformed
+        this.dispose();
+        Preguntas pre = new Preguntas();
+        pre.setVisible(true);
+        
+    }//GEN-LAST:event_btnopc1ActionPerformed
+
+    private void btnopc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopc2ActionPerformed
+        this.dispose();
+        Preguntas_dificil difi = new Preguntas_dificil();
+        difi.setVisible(true);
+    }//GEN-LAST:event_btnopc2ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -182,12 +252,16 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btniniciar;
+    private javax.swing.JButton btnopc1;
+    private javax.swing.JButton btnopc2;
     private javax.swing.JLabel close;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel hide;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlogo;
     private javax.swing.JLabel lblname;
+    private javax.swing.JLabel lblopc1;
+    private javax.swing.JLabel lblopc2;
     private javax.swing.JPanel pnlbarra;
     private javax.swing.JPanel pnlprincipal;
     private javax.swing.JLabel titulo;
