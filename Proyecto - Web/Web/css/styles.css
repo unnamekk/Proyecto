@@ -1,0 +1,278 @@
+
+/* GLOBAL STYLES */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    background: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    text-align: center;
+    overflow-x: hidden !important;
+    margin: auto !important;
+}
+
+a, a:hover, a:active, a:focus {
+    border: 0 none;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+/* TYPOGRAPHIE */
+
+h1,
+h2 {
+	font-family: 'Bahnscrift';
+    font-weight: 300;
+	color:#000000
+}
+
+h1 {
+    font-size: 60px;
+    line-height: 82px;
+}
+
+h2 {
+	padding: 10px;
+    font-size: 42px;
+    line-height: 52px;
+}
+
+h3 {
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 300;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 300;
+	color: rgb(7, 6, 15);
+}
+
+
+/* FORM GROUPS */
+
+
+
+/* CUSTOM CLASSES */
+
+.colored-line-small-center {
+	background: #008ed6;
+	display: block;
+	margin: auto;
+    height: 1px;
+    width: 25%;
+    z-index: 1;
+	margin-bottom: 5px;
+}
+
+.button-leweb {
+	background: none repeat scroll 0 0 rgba(8, 124, 163, 0.5);
+    border: 1px solid rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	border-radius: 20px;
+    box-shadow: none;
+	height: 57px;
+	padding-left: 108px;
+	padding-right: 108px;
+
+}
+
+/* SECTIONS */
+section {
+	padding: 100px 0px;
+}
+/* HEADER */
+
+#header {
+	background: url(../images/planeta-tierra.jpg) no-repeat center center;
+	background-size: cover;
+	height: 100vh;
+	padding: 0px;
+}
+
+#header .col-md-8 {
+	top: 18%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 999;
+}
+
+#header .logo {
+	margin-bottom: 15px;
+}
+
+.animation {
+	width: 100%;
+	bottom: 0;
+	height: 50px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 999;
+	text-align:center;
+	text-decoration: none;
+}
+
+#header .fa-angle-down {
+	text-align: center;
+	font-size: 48px;
+	color: rgba(255, 255, 255, 0.637);
+	
+	-webkit-animation: leweb_fade_move_down 2s ease-in-out infinite;
+	-moz-animation: leweb_fade_move_down 2s ease-in-out infinite;
+	animation: leweb_fade_move_down 2s ease-in-out infinite;
+   }
+
+   /* ABOUT */
+
+#about i {
+	color: rgb(255, 255, 255);
+	font-size: 75px;
+	background: #587685;
+	border-radius: 50%;
+	line-height: 175px;
+	height: 175px;
+	width: 175px;
+}
+
+   /* SUBSCRIBE */
+
+#subscribe {
+	background: #246b8fe0;
+}
+
+#subscribe .icontop {
+	color: #fff;
+	margin: -60px auto;
+	text-align: center;
+	font-size: 35px;
+	border-radius: 100%;
+	line-height: 85px;
+	height: 85px;
+	width: 85px;
+	background: #587685;
+}
+
+/* FOOTER */
+#footer {
+	border-top: 1px solid #ccc;
+	padding: 25px 0px;
+}
+
+#footer p {
+	margin: 0px 0px -5px;
+}
+
+#footer .social {
+	float: right;
+}
+	/* Animated Arrow Down Header */
+	
+@-webkit-keyframes leweb_fade_move_down {
+  0%   { -webkit-transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -webkit-transform:translate(0,20px); opacity: 0; }
+}
+@-moz-keyframes leweb_fade_move_down {
+  0%   { -moz-transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -moz-transform:translate(0,20px); opacity: 0; }
+}
+@keyframes leweb_fade_move_down {
+  0%   { transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { transform:translate(0,20px); opacity: 0; }
+}
+
+/* RESPONSIVE DESIGN */
+/* Extra Small devices (tablets, 446px and less) */
+@media (max-width: 456px) { 
+	
+	#mc_form .form-control {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	
+	.button-leweb {
+		width: 100%;
+	}
+	
+	#header .logo {
+		width: 200px;
+	}
+	
+	#header h1 {
+		display: none;
+	}
+
+}
+/* Small devices (tablets, 768px and less) */
+@media (max-width: 768px) { 
+
+	body {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	h1 {
+		font-size: 44px;
+		line-height: 58px;
+	}
+
+	h2 {
+		font-size: 24px;
+		line-height: 38px;
+	}
+
+	h3 {
+		font-size: 18px;
+		line-height: 30px;
+	}
+
+	h4 {
+		font-size: 16px;
+		line-height: 26px;
+	}
+
+	h5 {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	
+	.clocktitle{
+		font-size: 11px;
+	}
+
+	.numbers {
+		font-size: 44px;
+	}
+	
+	#header .col-md-8 {
+		top: 5%;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 992px) {	
+	
+	#about .middle {
+		margin-top: 65px;
+		margin-bottom: 65px;
+	}
+}
+
