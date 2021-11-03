@@ -117,7 +117,7 @@ public class Principal extends javax.swing.JFrame {
         btniniciar.setText("Jugar");
         btniniciar.setBorder(null);
         btniniciar.setContentAreaFilled(false);
-        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btniniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btniniciarActionPerformed(evt);
