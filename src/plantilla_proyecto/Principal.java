@@ -14,21 +14,21 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        String pedir = JOptionPane.showInputDialog(null,"Introduzca su nombre: ","Introduccion", JOptionPane.QUESTION_MESSAGE);
-        lblname.setText("Nombre: "+ pedir);
+        String pedir = JOptionPane.showInputDialog(null, "Introduzca su nombre: ", "Introduccion", JOptionPane.QUESTION_MESSAGE);
+        lblname.setText("Nombre: " + pedir);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/log.png")).getImage());
 
         ImageIcon fon = new ImageIcon("src/imagenes/fondo_aclarado.png");
         Icon icon1 = new ImageIcon(fon.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
         fondo.setIcon(icon1);
         this.repaint();
-        
+
         ImageIcon res1 = new ImageIcon("src/imagenes/Imagen1.png");
         Icon icon2 = new ImageIcon(res1.getImage().getScaledInstance(btnopc1.getWidth(), btnopc1.getHeight(), Image.SCALE_DEFAULT));
         btnopc1.setIcon(icon2);
         this.repaint();
         btnopc1.setVisible(false);
-        
+
         ImageIcon res2 = new ImageIcon("src/imagenes/Imagen1.png");
         Icon icon3 = new ImageIcon(res2.getImage().getScaledInstance(btnopc2.getWidth(), btnopc2.getHeight(), Image.SCALE_DEFAULT));
         btnopc2.setIcon(icon3);
@@ -44,6 +44,7 @@ public class Principal extends javax.swing.JFrame {
         pnlbarra = new javax.swing.JPanel();
         hide = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
         jlogo = new javax.swing.JLabel();
         pnlprincipal = new javax.swing.JPanel();
         btniniciar = new javax.swing.JButton();
@@ -54,7 +55,6 @@ public class Principal extends javax.swing.JFrame {
         lblopc1 = new javax.swing.JLabel();
         lblopc2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
-        close = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("¿Que sabes de cultura?");
@@ -75,14 +75,14 @@ public class Principal extends javax.swing.JFrame {
         pnlbarra.setLayout(null);
 
         hide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/minimizar.png"))); // NOI18N
-        hide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hide.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hideMouseClicked(evt);
             }
         });
         pnlbarra.add(hide);
-        hide.setBounds(900, 0, 40, 40);
+        hide.setBounds(880, 0, 40, 40);
 
         titulo.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -91,6 +91,17 @@ public class Principal extends javax.swing.JFrame {
         titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlbarra.add(titulo);
         titulo.setBounds(380, 0, 220, 40);
+
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
+        close.setLabelFor(hide);
+        close.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        pnlbarra.add(close);
+        close.setBounds(920, 0, 32, 40);
 
         jlogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/log.png"))); // NOI18N
@@ -106,16 +117,16 @@ public class Principal extends javax.swing.JFrame {
         btniniciar.setText("Jugar");
         btniniciar.setBorder(null);
         btniniciar.setContentAreaFilled(false);
-        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btniniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btniniciarActionPerformed(evt);
             }
         });
-        pnlprincipal.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 250, 130));
+        pnlprincipal.add(btniniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 250, 130));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logolindo.png"))); // NOI18N
-        pnlprincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 480, 240));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logocontexto.png"))); // NOI18N
+        pnlprincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 480, 240));
 
         lblname.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         lblname.setForeground(new java.awt.Color(0, 255, 255));
@@ -127,7 +138,7 @@ public class Principal extends javax.swing.JFrame {
         btnopc1.setBorder(null);
         btnopc1.setBorderPainted(false);
         btnopc1.setContentAreaFilled(false);
-        btnopc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnopc1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnopc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnopc1ActionPerformed(evt);
@@ -139,13 +150,13 @@ public class Principal extends javax.swing.JFrame {
         btnopc2.setBorder(null);
         btnopc2.setBorderPainted(false);
         btnopc2.setContentAreaFilled(false);
-        btnopc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnopc2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnopc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnopc2ActionPerformed(evt);
             }
         });
-        pnlprincipal.add(btnopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 180, 50));
+        pnlprincipal.add(btnopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 200, 50));
 
         lblopc1.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         lblopc1.setForeground(new java.awt.Color(0, 255, 255));
@@ -155,22 +166,12 @@ public class Principal extends javax.swing.JFrame {
 
         lblopc2.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         lblopc2.setForeground(new java.awt.Color(0, 255, 255));
-        pnlprincipal.add(lblopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 120, 30));
+        pnlprincipal.add(lblopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 170, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_aclarado.png"))); // NOI18N
         fondo.setMinimumSize(new java.awt.Dimension(840, 570));
         fondo.setPreferredSize(new java.awt.Dimension(840, 570));
         pnlprincipal.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 570));
-
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
-        close.setLabelFor(hide);
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
-        pnlprincipal.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, -30, 30, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,7 +224,7 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
         Preguntas pre = new Preguntas();
         pre.setVisible(true);
-        
+
     }//GEN-LAST:event_btnopc1ActionPerformed
 
     private void btnopc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopc2ActionPerformed
@@ -243,10 +244,10 @@ public class Principal extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
-        java.awt.EventQueue.invokeLater(() -> {
-            new Principal().setVisible(true);
-            JFrame.setDefaultLookAndFeelDecorated(false);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Principal().setVisible(true);
+            }
         });
     }
 
