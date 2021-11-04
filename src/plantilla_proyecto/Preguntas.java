@@ -14,18 +14,17 @@ public class Preguntas extends javax.swing.JFrame {
 
     //Variables
     private int x, y;
-    public static DecimalFormat miformato = new DecimalFormat("###,###,###,###");
     public static int aleatorioJuego = 0, nRespJuego = 0, min = 1, max = 5, maxJuego = 15,
-            confJuego = 0, n = 1, confResp = 0, confOp = 0, conf50 = 0, nPreg = 0, tGanado = 0,
-            vGanado = 0, tgSeg = 0, resta = 0, confirm = 0;
+            confJuego = 0, n = 1, confResp = 0, confOp = 0, tGanado = 0,
+            vGanado = 0,resta = 0,points =0;
     public static Random rnd = new Random();
 
     //Variable de las preguntas del juego
     public String txtRespJuego = "", resp1 = "", resp2 = "", resp3 = "", resp4 = "", txtRJ = "",
-            varPorcB = "",respCorrJuego = "",
+            varPorcB = "", respCorrJuego = "",
             preg1 = "¿Qué nombre reciben las culturas Mayas, Aztecas e Incas?",
             preg2 = "¿En qué aspectos destacaron los Mayas?",
-            preg3 = "¿Qué se celebra el 10 de junio en la Guayana francesa?", 
+            preg3 = "¿Qué se celebra el 10 de junio en la Guayana francesa?",
             preg4 = "¿Cómo se llama la Reina del Reino Unido?",
             preg5 = "¿En qué continente está Ecuador?",
             preg6 = "¿Como se escribe el 79 en números romanos?",
@@ -38,23 +37,21 @@ public class Preguntas extends javax.swing.JFrame {
             preg13 = "¿Cuál es la moneda del Reino Unido?",
             preg14 = "¿Cómo se llama el himno nacional de Francia?",
             preg15 = "¿Cuál es la ciudad principal de los Mayas?",
-    
             resPreg1A = "Culturas americanas", resPreg1B = "Culturas vikingas", resPreg1C = "Culturas Precolombinas", resPreg1D = "Culturas indígenas",
             resPreg2A = "Agricultura y comercio", resPreg2B = "Jugar al fútbol", resPreg2C = "Astronomía y matemáticas", resPreg2D = "Conquista de territorios",
             resPreg3A = "Santa Teresa de Ávila en Cayenne", resPreg3B = "Abolición de la esclavitud", resPreg3C = "Fiestas patronales", resPreg3D = "Ninguna de las anteriores",
             resPreg4A = "Ana", resPreg4B = "Isabel II", resPreg4C = "Victoria III", resPreg4D = "Elizabeth",
             resPreg5A = "América", resPreg5B = "Europa", resPreg5C = "Africa", resPreg5D = "Asia",
             resPreg6A = "XIIIX", resPreg6B = "XXIC", resPreg6C = "LXXIX", resPreg6D = "XXXXXXXIX",
-            resPreg7A = "Grecia", resPreg7B = "España", resPreg7C = "Noruega", resPreg7D = "Rusia",
-            resPreg8A = "Verde, blanco y rojo.", resPreg8B = "Amarillo, azul y rojo", resPreg8C = "Blanco y azul", resPreg8D = "Rojo y blanco",
-            resPreg9A = "Italia", resPreg9B = "España", resPreg9C = "Francia", resPreg9D = "Inglaterra",
-            resPreg10A = "Café", resPreg10B = "Maiz", resPreg10C = "Platano", resPreg10D = "Uva",
-            resPreg11A = "París", resPreg11B = "Medellin", resPreg11C = "Londres", resPreg11D = "Roma",
+            resPreg7A = "Noruega", resPreg7B = "España", resPreg7C = "Grecia", resPreg7D = "Rusia",
+            resPreg8A = "Rojo y blanco", resPreg8B = "Amarillo, azul y rojo", resPreg8C = "Blanco y azul", resPreg8D = "Verde, blanco y rojo.",
+            resPreg9A = "España", resPreg9B = "Italia", resPreg9C = "Francia", resPreg9D = "Inglaterra",
+            resPreg10A = "Platano", resPreg10B = "Maiz", resPreg10C = "Café", resPreg10D = "Uva",
+            resPreg11A = "Medellín", resPreg11B = "París", resPreg11C = "Londres", resPreg11D = "Roma",
             resPreg12A = "El Yangtze", resPreg12B = "El Nilo", resPreg12C = "El Orinoco", resPreg12D = "El Amazonas",
-            resPreg13A = "La libra", resPreg13B = "El peso", resPreg13C = "Dolar", resPreg13D = "Euro",
-            resPreg14A = "La Marsellesa", resPreg14B = "God Save the Queen", resPreg14C = "Marcha Real", resPreg14D = "Kong Kristian",
-            resPreg15A = "Chichen Itzá", resPreg15B = "Tlaxcala", resPreg15C = "Machu Pichu", resPreg15D = "Sevilla";
-         
+            resPreg13A = "Euro", resPreg13B = "Peso", resPreg13C = "Dolar", resPreg13D = "Libra",
+            resPreg14A = "Marcha Real", resPreg14B = "God Save the Queen", resPreg14C = "La Marsellesa", resPreg14D = "Kong Kristian",
+            resPreg15A = "Sevilla", resPreg15B = "Tlaxcala", resPreg15C = "Machu Pichu", resPreg15D = "Chichen Itzá";
 
     //Temporizador = 3mins
     Timer t;
@@ -89,169 +86,165 @@ public class Preguntas extends javax.swing.JFrame {
         this.repaint();
 
         ImageIcon res1 = new ImageIcon("src/imagenes/Imagen1.png");
-        Icon icon1 = new ImageIcon(res1.getImage().getScaledInstance(lblres1.getWidth(), lblres1.getHeight(), Image.SCALE_DEFAULT));
-        lblres1.setIcon(icon1);
+        Icon icon1 = new ImageIcon(res1.getImage().getScaledInstance(btnres1.getWidth(), btnres1.getHeight(), Image.SCALE_DEFAULT));
+        btnres1.setIcon(icon1);
         this.repaint();
 
         ImageIcon res2 = new ImageIcon("src/imagenes/Imagen1.png");
-        Icon icon2 = new ImageIcon(res2.getImage().getScaledInstance(lblres2.getWidth(), lblres2.getHeight(), Image.SCALE_DEFAULT));
-        lblres2.setIcon(icon2);
+        Icon icon2 = new ImageIcon(res2.getImage().getScaledInstance(btnres3.getWidth(), btnres3.getHeight(), Image.SCALE_DEFAULT));
+        btnres3.setIcon(icon2);
         this.repaint();
 
         ImageIcon res3 = new ImageIcon("src/imagenes/Imagen1.png");
-        Icon icon3 = new ImageIcon(res3.getImage().getScaledInstance(lblres3.getWidth(), lblres3.getHeight(), Image.SCALE_DEFAULT));
-        lblres3.setIcon(icon3);
+        Icon icon3 = new ImageIcon(res3.getImage().getScaledInstance(btnres2.getWidth(), btnres2.getHeight(), Image.SCALE_DEFAULT));
+        btnres2.setIcon(icon3);
         this.repaint();
 
         ImageIcon res4 = new ImageIcon("src/imagenes/Imagen1.png");
-        Icon icon4 = new ImageIcon(res4.getImage().getScaledInstance(lblres4.getWidth(), lblres4.getHeight(), Image.SCALE_DEFAULT));
-        lblres4.setIcon(icon4);
+        Icon icon4 = new ImageIcon(res4.getImage().getScaledInstance(btnres4.getWidth(), btnres4.getHeight(), Image.SCALE_DEFAULT));
+        btnres4.setIcon(icon4);
         this.repaint();
 
         ImageIcon preg = new ImageIcon("src/imagenes/Imagen1.png");
         Icon icon5 = new ImageIcon(preg.getImage().getScaledInstance(lblpregunta.getWidth(), lblpregunta.getHeight(), Image.SCALE_DEFAULT));
         lblpregunta.setIcon(icon5);
         this.repaint();
-
-        aleatorioJuego = 1;
+        
+        aleatorioJuego = (int) (Math.random() * (maxJuego)) + min;
         switch (aleatorioJuego) {
             case 1:
                 quest.setText(preg1);
-                btnres1.setText(resPreg1A);
-                btnres2.setText(resPreg1B);
-                btnres3.setText(resPreg1C);
-                btnres4.setText(resPreg1D);
+                lblres1.setText(resPreg1A);
+                lblres2.setText(resPreg1B);
+                lblres3.setText(resPreg1C);
+                lblres4.setText(resPreg1D);
                 respCorrJuego = resPreg1C;
-                if (btnres3.action(null, x)) {
-                   JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
-                    
-                }
 
                 break;
             case 2:
                 quest.setText(preg2);
-                btnres1.setText(resPreg2A);
-                btnres2.setText(resPreg2B);
-                btnres3.setText(resPreg2C);
-                btnres4.setText(resPreg2D);
+                lblres1.setText(resPreg2A);
+                lblres2.setText(resPreg2B);
+                lblres3.setText(resPreg2C);
+                lblres4.setText(resPreg2D);
                 respCorrJuego = resPreg2A;
 
                 break;
             case 3:
                 quest.setText(preg3);
-                btnres1.setText(resPreg3A);
-                btnres2.setText(resPreg3B);
-                btnres3.setText(resPreg3C);
-                btnres4.setText(resPreg3D);
+                lblres1.setText(resPreg3A);
+                lblres2.setText(resPreg3B);
+                lblres3.setText(resPreg3C);
+                lblres4.setText(resPreg3D);
                 respCorrJuego = resPreg3B;
 
                 break;
             case 4:
                 quest.setText(preg4);
-                btnres1.setText(resPreg4A);
-                btnres2.setText(resPreg4B);
-                btnres3.setText(resPreg4C);
-                btnres4.setText(resPreg4D);
+                lblres1.setText(resPreg4A);
+                lblres2.setText(resPreg4B);
+                lblres3.setText(resPreg4C);
+                lblres4.setText(resPreg4D);
                 respCorrJuego = resPreg4B;
 
                 break;
             case 5:
                 quest.setText(preg5);
-                btnres1.setText(resPreg5A);
-                btnres2.setText(resPreg5B);
-                btnres3.setText(resPreg5C);
-                btnres4.setText(resPreg5D);
+                lblres1.setText(resPreg5A);
+                lblres2.setText(resPreg5B);
+                lblres3.setText(resPreg5C);
+                lblres4.setText(resPreg5D);
                 respCorrJuego = resPreg5A;
 
                 break;
             case 6:
                 quest.setText(preg6);
-                btnres1.setText(resPreg6A);
-                btnres2.setText(resPreg6B);
-                btnres3.setText(resPreg6C);
-                btnres4.setText(resPreg6D);
+                lblres1.setText(resPreg6A);
+                lblres2.setText(resPreg6B);
+                lblres3.setText(resPreg6C);
+                lblres4.setText(resPreg6D);
                 respCorrJuego = resPreg6C;
 
                 break;
             case 7:
                 quest.setText(preg7);
-                btnres1.setText(resPreg7A);
-                btnres2.setText(resPreg7B);
-                btnres3.setText(resPreg7C);
-                btnres4.setText(resPreg7D);
-                respCorrJuego = resPreg7A;
+                lblres1.setText(resPreg7A);
+                lblres2.setText(resPreg7B);
+                lblres3.setText(resPreg7C);
+                lblres4.setText(resPreg7D);
+                respCorrJuego = resPreg7C;
 
                 break;
             case 8:
                 quest.setText(preg8);
-                btnres1.setText(resPreg8A);
-                btnres2.setText(resPreg8B);
-                btnres3.setText(resPreg8C);
-                btnres4.setText(resPreg8D);
-                respCorrJuego = resPreg8A;
+                lblres1.setText(resPreg8A);
+                lblres2.setText(resPreg8B);
+                lblres3.setText(resPreg8C);
+                lblres4.setText(resPreg8D);
+                respCorrJuego = resPreg8D;
 
                 break;
             case 9:
                 quest.setText(preg9);
-                btnres1.setText(resPreg9A);
-                btnres2.setText(resPreg9B);
-                btnres3.setText(resPreg9C);
-                btnres4.setText(resPreg9D);
-                respCorrJuego = resPreg9A;
+                lblres1.setText(resPreg9A);
+                lblres2.setText(resPreg9B);
+                lblres3.setText(resPreg9C);
+                lblres4.setText(resPreg9D);
+                respCorrJuego = resPreg9B;
 
                 break;
             case 10:
                 quest.setText(preg10);
-                btnres1.setText(resPreg10A);
-                btnres2.setText(resPreg10B);
-                btnres3.setText(resPreg10C);
-                btnres4.setText(resPreg10D);
-                respCorrJuego = resPreg10A;
+                lblres1.setText(resPreg10A);
+                lblres2.setText(resPreg10B);
+                lblres3.setText(resPreg10C);
+                lblres4.setText(resPreg10D);
+                respCorrJuego = resPreg10C;
 
                 break;
             case 11:
                 quest.setText(preg11);
-                btnres1.setText(resPreg11A);
-                btnres2.setText(resPreg11B);
-                btnres3.setText(resPreg11C);
-                btnres4.setText(resPreg11D);
-                respCorrJuego = resPreg11A;
+                lblres1.setText(resPreg11A);
+                lblres2.setText(resPreg11B);
+                lblres3.setText(resPreg11C);
+                lblres4.setText(resPreg11D);
+                respCorrJuego = resPreg11B;
 
                 break;
             case 12:
                 quest.setText(preg12);
-                btnres1.setText(resPreg12A);
-                btnres2.setText(resPreg12B);
-                btnres3.setText(resPreg12C);
-                btnres4.setText(resPreg12D);
+                lblres1.setText(resPreg12A);
+                lblres2.setText(resPreg12B);
+                lblres3.setText(resPreg12C);
+                lblres4.setText(resPreg12D);
                 respCorrJuego = resPreg12B;
 
                 break;
             case 13:
                 quest.setText(preg13);
-                btnres1.setText(resPreg13A);
-                btnres2.setText(resPreg13B);
-                btnres3.setText(resPreg13C);
-                btnres4.setText(resPreg13D);
-                respCorrJuego = resPreg13A;
+                lblres1.setText(resPreg13A);
+                lblres2.setText(resPreg13B);
+                lblres3.setText(resPreg13C);
+                lblres4.setText(resPreg13D);
+                respCorrJuego = resPreg13D;
 
                 break;
             case 14:
                 quest.setText(preg14);
-                btnres1.setText(resPreg14A);
-                btnres2.setText(resPreg14B);
-                btnres3.setText(resPreg14C);
-                btnres4.setText(resPreg14D);
-                respCorrJuego = resPreg14A;
+                lblres1.setText(resPreg14A);
+                lblres2.setText(resPreg14B);
+                lblres3.setText(resPreg14C);
+                lblres4.setText(resPreg14D);
+                respCorrJuego = resPreg14C;
 
                 break;
             case 15:
                 quest.setText(preg15);
-                btnres1.setText(resPreg15A);
-                btnres2.setText(resPreg15B);
-                btnres3.setText(resPreg15C);
-                btnres4.setText(resPreg15D);
-                respCorrJuego = resPreg15A;
+                lblres1.setText(resPreg15A);
+                lblres2.setText(resPreg15B);
+                lblres3.setText(resPreg15C);
+                lblres4.setText(resPreg15D);
+                respCorrJuego = resPreg15D;
 
                 break;
         }
@@ -301,7 +294,6 @@ public class Preguntas extends javax.swing.JFrame {
         pnl1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnres1.setBackground(new java.awt.Color(255, 255, 255));
-        btnres1.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         btnres1.setForeground(new java.awt.Color(0, 255, 255));
         btnres1.setBorder(null);
         btnres1.setBorderPainted(false);
@@ -313,9 +305,8 @@ public class Preguntas extends javax.swing.JFrame {
                 btnres1ActionPerformed(evt);
             }
         });
-        pnl1.add(btnres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 290, 60));
+        pnl1.add(btnres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 340, 90));
 
-        btnres2.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         btnres2.setForeground(new java.awt.Color(0, 255, 255));
         btnres2.setBorder(null);
         btnres2.setBorderPainted(false);
@@ -327,9 +318,8 @@ public class Preguntas extends javax.swing.JFrame {
                 btnres2ActionPerformed(evt);
             }
         });
-        pnl1.add(btnres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 530, 290, 60));
+        pnl1.add(btnres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 340, 90));
 
-        btnres3.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         btnres3.setForeground(new java.awt.Color(0, 255, 255));
         btnres3.setBorder(null);
         btnres3.setBorderPainted(false);
@@ -341,9 +331,8 @@ public class Preguntas extends javax.swing.JFrame {
                 btnres3ActionPerformed(evt);
             }
         });
-        pnl1.add(btnres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 290, 60));
+        pnl1.add(btnres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 340, 90));
 
-        btnres4.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         btnres4.setForeground(new java.awt.Color(0, 255, 255));
         btnres4.setBorder(null);
         btnres4.setBorderPainted(false);
@@ -354,23 +343,23 @@ public class Preguntas extends javax.swing.JFrame {
                 btnres4ActionPerformed(evt);
             }
         });
-        pnl1.add(btnres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 290, 60));
+        pnl1.add(btnres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 340, 90));
 
-        lblres1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lblres1.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         lblres1.setForeground(new java.awt.Color(0, 255, 255));
-        pnl1.add(lblres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 360, 100));
+        pnl1.add(lblres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 320, 50));
 
-        lblres2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lblres2.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         lblres2.setForeground(new java.awt.Color(0, 255, 255));
-        pnl1.add(lblres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 360, 110));
+        pnl1.add(lblres2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 320, 50));
 
-        lblres3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lblres3.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         lblres3.setForeground(new java.awt.Color(0, 255, 255));
-        pnl1.add(lblres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 370, 110));
+        pnl1.add(lblres3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 320, 50));
 
-        lblres4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lblres4.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         lblres4.setForeground(new java.awt.Color(0, 255, 255));
-        pnl1.add(lblres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 370, 110));
+        pnl1.add(lblres4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 320, 50));
 
         timer.setFont(new java.awt.Font("Bahnschrift", 1, 75)); // NOI18N
         timer.setForeground(new java.awt.Color(0, 255, 255));
@@ -464,7 +453,127 @@ public class Preguntas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn50ActionPerformed
+        if (resPreg1C.equals(respCorrJuego)) {
+            btnres1.setVisible(false);
+            btnres4.setVisible(false);
+            lblres1.setVisible(false);
+            lblres4.setVisible(false);
+            btn50.setEnabled(false);
+        } else {
+            if (resPreg2A.equals(respCorrJuego)) {
+                btnres2.setVisible(false);
+                btnres4.setVisible(false);
+                lblres2.setVisible(false);
+                lblres4.setVisible(false);
+                btn50.setEnabled(false);
+            } else {
+                if (resPreg3B.equals(respCorrJuego)) {
+                    btnres1.setVisible(false);
+                    btnres3.setVisible(false);
+                    lblres1.setVisible(false);
+                    lblres3.setVisible(false);
+                    btn50.setEnabled(false);
+                } else {
+                    if (resPreg4B.equals(respCorrJuego)) {
+                        btnres4.setVisible(false);
+                        btnres3.setVisible(false);
+                        lblres4.setVisible(false);
+                        lblres3.setVisible(false);
+                        btn50.setEnabled(false);
+                    } else {
+                        if (resPreg5A.equals(respCorrJuego)) {
+                            btnres2.setVisible(false);
+                            btnres3.setVisible(false);
+                            lblres2.setVisible(false);
+                            lblres3.setVisible(false);
+                            btn50.setEnabled(false);
+                        } else {
+                            if (resPreg6C.equals(respCorrJuego)) {
+                                btnres1.setVisible(false);
+                                btnres4.setVisible(false);
+                                lblres1.setVisible(false);
+                                lblres4.setVisible(false);
+                                btn50.setEnabled(false);
+                            } else {
+                                if (resPreg7C.equals(respCorrJuego)) {
+                                    btnres1.setVisible(false);
+                                    btnres2.setVisible(false);
+                                    lblres1.setVisible(false);
+                                    lblres2.setVisible(false);
+                                    btn50.setEnabled(false);
+                                } else {
+                                    if (resPreg8D.equals(respCorrJuego)) {
+                                        btnres1.setVisible(false);
+                                        btnres3.setVisible(false);
+                                        lblres1.setVisible(false);
+                                        lblres3.setVisible(false);
+                                        btn50.setEnabled(false);
+                                    } else {
+                                        if (resPreg9B.equals(respCorrJuego)) {
+                                            btnres1.setVisible(false);
+                                            btnres4.setVisible(false);
+                                            lblres1.setVisible(false);
+                                            lblres4.setVisible(false);
+                                            btn50.setEnabled(false);
+                                        } else {
+                                            if (resPreg10C.equals(respCorrJuego)) {
+                                                btnres1.setVisible(false);
+                                                btnres2.setVisible(false);
+                                                lblres1.setVisible(false);
+                                                lblres2.setVisible(false);
+                                                btn50.setEnabled(false);
+                                            } else {
+                                                if (resPreg11B.equals(respCorrJuego)) {
+                                                    btnres1.setVisible(false);
+                                                    btnres3.setVisible(false);
+                                                    lblres1.setVisible(false);
+                                                    lblres3.setVisible(false);
+                                                    btn50.setEnabled(false);
+                                                } else {
+                                                    if (resPreg12B.equals(respCorrJuego)) {
+                                                        btnres4.setVisible(false);
+                                                        btnres3.setVisible(false);
+                                                        lblres4.setVisible(false);
+                                                        lblres3.setVisible(false);
+                                                        btn50.setEnabled(false);
+                                                    } else {
+                                                        if (resPreg13D.equals(respCorrJuego)) {
+                                                            btnres2.setVisible(false);
+                                                            btnres3.setVisible(false);
+                                                            lblres2.setVisible(false);
+                                                            lblres3.setVisible(false);
+                                                            btn50.setEnabled(false);
+                                                        } else {
+                                                            if (resPreg14C.equals(respCorrJuego)) {
+                                                                btnres1.setVisible(false);
+                                                                btnres4.setVisible(false);
+                                                                lblres1.setVisible(false);
+                                                                lblres4.setVisible(false);
+                                                                btn50.setEnabled(false);
+                                                            } else {
+                                                                if (resPreg15D.equals(respCorrJuego)) {
+                                                                    btnres1.setVisible(false);
+                                                                    btnres3.setVisible(false);
+                                                                    lblres1.setVisible(false);
+                                                                    lblres3.setVisible(false);
+                                                                    btn50.setEnabled(false);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
 
+                }
+
+            }
+        }
     }//GEN-LAST:event_btn50ActionPerformed
 
     private void btncallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncallActionPerformed
@@ -474,16 +583,73 @@ public class Preguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_btncallActionPerformed
 
     private void btnres4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres4ActionPerformed
+        if (resPreg8D.equals(respCorrJuego)) {
+            JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+            nRespJuego = nRespJuego + 1;
+            points = points + 1500;
+        } else {
+            if (resPreg13D.equals(respCorrJuego)) {
+                JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                nRespJuego = nRespJuego + 1;
+                points = points + 1500;
+            } else {
+                if (resPreg15D.equals(respCorrJuego)) {
+                    JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                    nRespJuego = nRespJuego + 1;
+                    points = points + 1500;
 
+                }
+            }
+        }
     }//GEN-LAST:event_btnres4ActionPerformed
 
     private void btnres1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres1ActionPerformed
-
+        if (resPreg2A.equals(respCorrJuego)) {
+            JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+            nRespJuego = nRespJuego + 1;
+            points = points + 1500;
+        } else {
+            if (resPreg5A.equals(respCorrJuego)) {
+                JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                nRespJuego = nRespJuego + 1;
+                points = points + 1500;
+                points = points + 1500;
+            }
+        }
     }//GEN-LAST:event_btnres1ActionPerformed
 
-    private void btnres2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres2ActionPerformed
+    private void btnres3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres3ActionPerformed
+        if (resPreg1C.equals(respCorrJuego)) {
+            JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+            nRespJuego = nRespJuego + 1;
+            points = points + 1500;
+        } else {
+            if (resPreg6C.equals(respCorrJuego)) {
+                JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                nRespJuego = nRespJuego + 1;
+                points = points + 1500;
+            } else {
+                if (resPreg7C.equals(respCorrJuego)) {
+                    JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                    nRespJuego = nRespJuego + 1;
+                    points = points + 1500;
+                } else {
+                    if (resPreg10C.equals(respCorrJuego)) {
+                        JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                        nRespJuego = nRespJuego + 1;
+                        points = points + 1500;
+                    } else {
+                        if (resPreg14C.equals(respCorrJuego)) {
+                            JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                            nRespJuego = nRespJuego + 1;
+                            points = points + 1500;
+                        }
+                    }
+                }
+            }
 
-    }//GEN-LAST:event_btnres2ActionPerformed
+        }
+    }//GEN-LAST:event_btnres3ActionPerformed
 
     private void hideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hideMouseClicked
         this.setState(Principal.ICONIFIED);
@@ -497,9 +663,40 @@ public class Preguntas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_closeMouseClicked
 
-    private void btnres3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres3ActionPerformed
+    private void btnres2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnres2ActionPerformed
+        if (resPreg3B.equals(respCorrJuego)) {
+            JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+            nRespJuego = nRespJuego + 1;
+            points = points + 1500;
+        } else {
+            if (resPreg4B.equals(respCorrJuego)) {
+                JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                nRespJuego = nRespJuego + 1;
+                points = points + 1500;
+            } else {
+                if (resPreg9B.equals(respCorrJuego)) {
+                    JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                    nRespJuego = nRespJuego + 1;
+                    points = points + 1500;
 
-    }//GEN-LAST:event_btnres3ActionPerformed
+                } else {
+                    if (resPreg11B.equals(respCorrJuego)) {
+                        JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                        nRespJuego = nRespJuego + 1;
+                        points = points + 1500;
+
+                    } else {
+                        if (resPreg12B.equals(respCorrJuego)) {
+                            JOptionPane.showConfirmDialog(null, "Respuesta Correcta!", "CORRECTO!!", JOptionPane.OK_OPTION);
+                            nRespJuego = nRespJuego + 1;
+                            points = points + 1500;
+
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btnres2ActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         x = evt.getX();
@@ -509,8 +706,6 @@ public class Preguntas extends javax.swing.JFrame {
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_formMouseDragged
-
-    
 
     public static void main(String args[]) {
 
