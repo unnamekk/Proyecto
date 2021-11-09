@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
 public class Principal extends javax.swing.JFrame {
 
     private int x, y;
+     public static int nRespJuego = 1, points=0;
 
     public Principal() {
         initComponents();
+        setTitle("¿Que sabes de cultura?");
         this.setLocationRelativeTo(null);
-        String pedir = JOptionPane.showInputDialog(null, "Introduzca su nombre: ", "Introduccion", JOptionPane.QUESTION_MESSAGE);
-        lblname.setText("Nombre: " + pedir);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/log.png")).getImage());
 
         ImageIcon fon = new ImageIcon("src/imagenes/fondo_aclarado.png");
@@ -28,13 +28,6 @@ public class Principal extends javax.swing.JFrame {
         btnopc1.setIcon(icon2);
         this.repaint();
         btnopc1.setVisible(false);
-
-        ImageIcon res2 = new ImageIcon("src/imagenes/Imagen1.png");
-        Icon icon3 = new ImageIcon(res2.getImage().getScaledInstance(btnopc2.getWidth(), btnopc2.getHeight(), Image.SCALE_DEFAULT));
-        btnopc2.setIcon(icon3);
-        this.repaint();
-        btnopc2.setVisible(false);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -49,11 +42,8 @@ public class Principal extends javax.swing.JFrame {
         pnlprincipal = new javax.swing.JPanel();
         btniniciar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lblname = new javax.swing.JLabel();
         btnopc1 = new javax.swing.JButton();
-        btnopc2 = new javax.swing.JButton();
         lblopc1 = new javax.swing.JLabel();
-        lblopc2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,7 +107,7 @@ public class Principal extends javax.swing.JFrame {
         btniniciar.setText("Jugar");
         btniniciar.setBorder(null);
         btniniciar.setContentAreaFilled(false);
-        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btniniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btniniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btniniciarActionPerformed(evt);
@@ -128,45 +118,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logocontexto.png"))); // NOI18N
         pnlprincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 480, 240));
 
-        lblname.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        lblname.setForeground(new java.awt.Color(0, 255, 255));
-        lblname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblname.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        pnlprincipal.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 270, 20));
-
         btnopc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
         btnopc1.setBorder(null);
         btnopc1.setBorderPainted(false);
         btnopc1.setContentAreaFilled(false);
-        btnopc1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnopc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnopc1.setRolloverEnabled(true);
+        btnopc1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/redi_prin.png"))); // NOI18N
         btnopc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnopc1ActionPerformed(evt);
             }
         });
-        pnlprincipal.add(btnopc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 180, 50));
-
-        btnopc2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
-        btnopc2.setBorder(null);
-        btnopc2.setBorderPainted(false);
-        btnopc2.setContentAreaFilled(false);
-        btnopc2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnopc2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnopc2ActionPerformed(evt);
-            }
-        });
-        pnlprincipal.add(btnopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 200, 50));
+        pnlprincipal.add(btnopc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 180, 50));
 
         lblopc1.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         lblopc1.setForeground(new java.awt.Color(0, 255, 255));
         lblopc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblopc1.setFocusable(false);
-        pnlprincipal.add(lblopc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 180, 30));
-
-        lblopc2.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
-        lblopc2.setForeground(new java.awt.Color(0, 255, 255));
-        pnlprincipal.add(lblopc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 170, 30));
+        pnlprincipal.add(lblopc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 180, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_aclarado.png"))); // NOI18N
         fondo.setMinimumSize(new java.awt.Dimension(840, 570));
@@ -214,9 +184,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btniniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btniniciarActionPerformed
         btnopc1.setVisible(true);
-        btnopc2.setVisible(true);
         lblopc1.setText("Novato cultural");
-        lblopc2.setText("Rey de la cultura");
         btniniciar.setEnabled(false);
     }//GEN-LAST:event_btniniciarActionPerformed
 
@@ -226,12 +194,6 @@ public class Principal extends javax.swing.JFrame {
         pre.setVisible(true);
 
     }//GEN-LAST:event_btnopc1ActionPerformed
-
-    private void btnopc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopc2ActionPerformed
-        this.dispose();
-        Preguntas_dificil difi = new Preguntas_dificil();
-        difi.setVisible(true);
-    }//GEN-LAST:event_btnopc2ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -254,15 +216,12 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btniniciar;
     private javax.swing.JButton btnopc1;
-    private javax.swing.JButton btnopc2;
     private javax.swing.JLabel close;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel hide;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlogo;
-    private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblopc1;
-    private javax.swing.JLabel lblopc2;
     private javax.swing.JPanel pnlbarra;
     private javax.swing.JPanel pnlprincipal;
     private javax.swing.JLabel titulo;

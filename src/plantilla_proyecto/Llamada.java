@@ -5,7 +5,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class Llamada extends javax.swing.JFrame {
@@ -55,6 +54,7 @@ public class Llamada extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pnlprin.setBorder(new javax.swing.border.MatteBorder(null));
         pnlprin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         timer.setFont(new java.awt.Font("Bahnschrift", 1, 75)); // NOI18N
@@ -81,7 +81,7 @@ public class Llamada extends javax.swing.JFrame {
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_1.jpg"))); // NOI18N
         pnlprin.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
 
-        getContentPane().add(pnlprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 300));
+        getContentPane().add(pnlprin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
